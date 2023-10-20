@@ -15,6 +15,7 @@ import Constants from 'expo-constants';
 import Babies from './src/screens/pediatrician/Babies';
 import NutritionPlan from './src/screens/pediatrician/NutritionPlan';
 import MotherNavigation from './src/navigation/mother';
+import Growth from './src/screens/pediatrician/Growth';
 
 Notifications.setNotificationHandler({
   handleNotification: async () => ({
@@ -128,6 +129,7 @@ export default function App() {
               <Stack.Screen name='PEDIAT' component={PediatNavigation} />
               <Stack.Screen name='BABIES' component={Babies} />
               <Stack.Screen name='NUTRITION' component={NutritionPlan} />
+              <Stack.Screen name='GROWTH' component={Growth} />
             </>
             :
             loggedIn === 'mother' ?

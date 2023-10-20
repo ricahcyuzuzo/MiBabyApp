@@ -71,8 +71,9 @@ const Babies = ({ navigation, route }) => {
          }}>
             {
                 babies.map((item, idx) => 
+                <View style={{ flexDirection: 'row', gap: 5, justifyContent: 'center', alignItems: 'center' }}>
                 <TouchableOpacity onPress={() => navigation.navigate('NUTRITION', { babyId: item._id, motherId: route.params.motherId })} key={idx} style={{
-                    width: '95%',
+                    width: '70%',
                     height: 170,
                     backgroundColor: '#ffe5ec',
                     borderRadius: 20,
@@ -100,7 +101,18 @@ const Babies = ({ navigation, route }) => {
                         <Text style={{ fontSize: 18, fontWeight: '600' }}>{item.height}M</Text>
                         <Text style={{ fontSize: 18, fontWeight: '600' }}>{item.weight}Kg</Text>
                     </View>
-                </TouchableOpacity>)
+                </TouchableOpacity>
+                <TouchableOpacity onPress={() => navigation.navigate('GROWTH', { babyId: item._id, motherId: route.params.motherId })} style={{
+                    width: '25%',
+                    height: 50,
+                    backgroundColor: '#219ebc',
+                    borderRadius: 10,
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    }}>
+                    <Text style={{ color: '#fff' }}>Growth</Text>
+                    </TouchableOpacity>
+                </View>)
             }
             {
             babies.length === 0 && <Text style={{ fontSize: 30, fontWeight: '900', width: '70%', textAlign: 'center', alignSelf: 'center', marginTop: 20, }}>No babies added yet.</Text>

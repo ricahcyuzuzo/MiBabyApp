@@ -57,24 +57,29 @@ const Mother = ({ navigation }) => {
         </View>
         <View style={{ marginTop: 30}} />
        { mothers.map((item, idx) => 
-       <TouchableOpacity 
+       <View key={idx} style={{
+        flexDirection: 'row',
+        gap: 5,
+        marginBottom: 10,
+        alignItems: 'center',
+        justifyContent: 'center'
+       }}>
+        <TouchableOpacity 
           onPress={() => navigation.navigate('BABIES', { motherId: item._id })}
-          key={idx} 
           style={{ 
             width: '90%',
             height: 50,
             borderRadius: 10,
             backgroundColor: '#e5e5e5',
             justifyContent: 'space-between',
-            alignSelf: 'center',
-            marginTop: 10,
             flexDirection: 'row',
             alignItems: 'center',
             paddingRight: 20,
         }}>
             <Text style={{ fontSize: 20, fontWeight: 'bold', color: '#4c4c4c', marginLeft: 10, }}>{item.name}</Text>
             <Text style={{ fontSize: 10, fontWeight: 'bold', color: '#4c4c4c', marginLeft: 10, position: 'absolute', bottom: 3, right: 10, }}>{item.phone}</Text>
-        </TouchableOpacity>)}
+        </TouchableOpacity>
+       </View>)}
         {
             mothers.length === 0 && <Text style={{ fontSize: 30, fontWeight: '900', width: '70%', textAlign: 'center', alignSelf: 'center', marginTop: 20, }}>No Mothers added yet.</Text>
         }
